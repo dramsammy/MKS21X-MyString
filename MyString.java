@@ -11,5 +11,11 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
   public int length(){
     return data.length;
   }
-
+  // Method that returns postion of char at certain Index. Throws exception if index is below 0 or greater than length of sequence
+  public char charAt(int index){
+    if (index < 0 || index > length() - 1){
+      throw new IndexOutOfBoundsException("Index is out of range");
+    }
+    return data[index];
   }
+}
