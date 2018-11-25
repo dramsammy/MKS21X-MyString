@@ -41,5 +41,11 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     }
     return new MyString(returnValue);
   }
-  public
+  public int compareTo(String anotherString){
+    if (anotherString == null || this == null){
+      throw new NullPointerException();
+    }
+    
+
+  }
 }
