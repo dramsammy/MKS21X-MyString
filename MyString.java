@@ -18,6 +18,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     }
     return data[index];
   }
+  // Method returns subSequence of data with start and end indices
   public CharSequence subSequence(int start, int end){
     if (start < 0 || start > end){
       throw new IndexOutOfBoundsException("Start is greater than end or less than 0");
@@ -38,5 +39,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
       start++;
       number++;
     }
+    return new MyString(returnValue);
   }
+  public
 }
