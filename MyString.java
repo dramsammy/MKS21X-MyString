@@ -18,4 +18,25 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     }
     return data[index];
   }
+  public CharSequence subSequence(int start, int end){
+    if (start < 0 || start > end){
+      throw new IndexOutOfBoundsException("Start is greater than end or less than 0");
+    }
+    if (end < 0 ){
+      throw new IndexOutOfBoundsException("End is less than 0");
+    }
+    if (end > length()){
+      throw new IndexOutOfBoundsException("End is out of range");
+    }
+    if (start == end){
+      return "";
+    }
+    char[] returnValue = new char[end - start];
+    int number = 0;
+    while (start < end){
+      returnValue[number] = data[start];
+      start++;
+      number++;
+    }
+  }
 }
