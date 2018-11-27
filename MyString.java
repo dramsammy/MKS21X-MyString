@@ -46,12 +46,18 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     return string;
   }
   // Method compares char sequences lexigraphically between eachother
-  public int compareTo(String anotherString){
+  public int compareTo(CharSequence anotherString){
     if (anotherString == null || this == null){
       throw new NullPointerException();
     }
-    int longer = Math.max(anotherString.length(), this.length());
-    for (int i = 0; i < longer; i ++){
+    if (anotherString != "" && data.length == 0){
+      return 1;
+    }
+    if (anotherString == "" && data.length == 0){
+      return 0;
+    }
+    int smaller = Math.min(anotherString.length(), this.length());
+    for (int i = 0; i < smaller; i ++){
       if (anotherString.charAt(i)+0 > this.charAt(i)+0){
         return -1;
       }
@@ -59,9 +65,9 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
         return 1;
       }
     }
-
-
+    return 0;
   }
+  // Method that returns string version of sequence
   public String toString(){
     String string = "";
     for (int i = 0; i < this.length(); i++){
