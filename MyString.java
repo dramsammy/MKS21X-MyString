@@ -50,6 +50,9 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     if (anotherString == null || this == null){
       throw new NullPointerException();
     }
+    else if (anotherString.equals(this)){
+      return 0;
+    }
     else if (anotherString != "" && data.length == 0){
       return 1;
     }
@@ -64,6 +67,9 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
       else if (anotherString.charAt(i)+0<this.charAt(i)+0){
         return 1;
       }
+    }
+    if (this.length() != anotherString.length()){
+      return this.length() - anotherString.length();
     }
     return 0;
   }
