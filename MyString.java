@@ -39,7 +39,11 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
       start++;
       number++;
     }
-    return new MyString(returnValue);
+    String string = "";
+    for (int i = 0; i < returnValue.length; i++){
+      string += returnValue[i];
+    }
+    return string;
   }
   // Method compares char sequences lexigraphically between eachother
   public int compareTo(String anotherString){
@@ -58,5 +62,11 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
 
 
   }
-
+  public String toString(){
+    String string = "";
+    for (int i = 0; i < this.length(); i++){
+      string += this.charAt(i);
+    }
+    return string;
+  }
 }
