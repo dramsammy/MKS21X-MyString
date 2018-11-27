@@ -41,11 +41,21 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     }
     return new MyString(returnValue);
   }
+  // Method compares char sequences lexigraphically between eachother
   public int compareTo(String anotherString){
     if (anotherString == null || this == null){
       throw new NullPointerException();
     }
-    
+    int longer = Math.max(anotherString.length(), this.length());
+    for (int i = 0; i < longer; i ++){
+      if (anotherString.charAt(i)+0 > this.charAt(i)+0){
+        return -1;
+      }
+      else{
+        return 1;
+      }
+    }
+
 
   }
 }
