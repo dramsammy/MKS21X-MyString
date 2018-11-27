@@ -50,10 +50,10 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     if (anotherString == null || this == null){
       throw new NullPointerException();
     }
-    if (anotherString != "" && data.length == 0){
+    else if (anotherString != "" && data.length == 0){
       return 1;
     }
-    if (anotherString == "" && data.length == 0){
+    else if (anotherString == "" && data.length == 0){
       return 0;
     }
     int smaller = Math.min(anotherString.length(), this.length());
@@ -61,7 +61,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
       if (anotherString.charAt(i)+0 > this.charAt(i)+0){
         return -1;
       }
-      else{
+      else if (anotherString.charAt(i)+0<this.charAt(i)+0){
         return 1;
       }
     }
